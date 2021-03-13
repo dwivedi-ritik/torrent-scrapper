@@ -1,0 +1,144 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+body{
+  margin: 0;
+  padding: 0;
+  background: #f2f2f2;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.up {
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
+
+.up h1{
+  position: absolute;
+  top:15%;
+  color: #00B4CC;
+  font-size: 60px;
+}
+
+.search {
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+
+.searchTerm {
+  width: 100%;
+  border: 3px solid #00B4CC;
+  border-right: none;
+  padding: 5px;
+  height: 25px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #9DBFAF;
+
+}
+
+.searchTerm:focus{
+  color: #00B4CC;
+}
+
+.searchButton {
+  width: 45px;
+  height: 41px;
+  border: 1px solid #00B4CC;
+  background: #00B4CC;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+
+.ico {
+  cursor: pointer;
+  position:absolute;
+  width: auto;
+  height: 50%;
+  top:50%;
+  right: 10px;
+  transform: translateY(-50%);
+}
+
+.wrap{
+  width: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -80%);
+}
+.wrap p{
+  margin-top: 5%;
+  text-align: center;
+  font-size: 10px;
+  font-weight: bold;
+}
+.res {
+  position:absolute;
+  top:60%;
+  left:50%;
+}
+.tor {
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  transform: translateX(-50%);
+  font-size: 12px;
+  width: 650px;
+  max-width: 1000px;
+  height: 50px;
+  border-left: 3px solid #00B4CC;
+}
+
+.title {
+  font-weight: bold;
+  padding: 15px;
+}
+
+.seeders{
+    font-weight: bold;
+    padding: 5px;
+    color: rgb(49, 199, 114);
+}
+
+.leeches{
+  font-weight: bold;
+  padding: 10px;
+  color: rgb(236, 117, 38);
+}
+
+.magnets-inp {
+  cursor: pointer;
+  border: 1px dashed #9DBFAF;
+  background-color: #f2f2f2;
+  color:#373c36;
+}
+
+.msg {
+  font-size: 13px;
+  position: absolute;
+  font-weight: bold;
+  color: rgb(236, 61, 38);
+}
+
+@media screen and (max-width: 700px){
+  .up h1{
+    font-size: 50px;
+  }
+
+  .wrap {
+    width: 200px;
+  }
+  .tor {
+    width : 150px;
+    font-size: 10px;
+    height: 25px;
+    border: none;
+  }
+}
