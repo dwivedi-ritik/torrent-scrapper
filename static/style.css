@@ -132,19 +132,15 @@ body{
     top: 20%;
     font-size: 25px;
   }
-
   .wrap {
     width: 250px;
     top:40%;
   }
   .tor {
-    font-size: 10px;
+    font-size: 8px;
     border: none;
     height: auto;
     width: auto;
     border-left: 3px solid #00B4CC;
-  }
-  .title {
-    font-size: 15px;
   }
 }
