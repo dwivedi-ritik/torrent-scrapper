@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Torr Search</title>
     <link rel="stylesheet"  href= {{ url_for( 'static' , filename = 'style.css' )}}>
+
 </head>
 <body>
     <div class="up">
@@ -13,8 +14,9 @@
         <div class="wrap">
             <form class="search" method="POST">
                 <input type="text" class="searchTerm" placeholder="Search Torrent" name="query">
-                <input type="submit" class="searchButton" value="">
-                <img src="./static/search.png" class = "ico" alt="">
+                <button type="submit" class="searchButton" value="">
+                <img src="./static/search.png" class = "ico" alt="" type="submit">
+                </button>
             </form>
             <p>Torrent searcher which scrape torrents from 1337x.
                 click on the magnet links for copying magnet link.
@@ -28,6 +30,18 @@
         {% for item in res%}
             <div class="tor">
                 <div class="title">{{ item['title'] }}</div>
+                <div class="seeders">Seeders: <span> {{ item['seeders'] }} </span></div>
+                <div class="leeches">Leeches: <span> {{ item['leeches'] }} </span></div>
+                <input type='text' class="magnets-inp" value={{ item['magnet_url'] }} readonly>
+            </div>
+            <div class="tor">
+                <div class="title">{{ item['title'] }}</div>
+                <div class="seeders">Seeders: <span> {{ item['seeders'] }} </span></div>
+                <div class="leeches">Leeches: <span> {{ item['leeches'] }} </span></div>
+                <input type='text' class="magnets-inp" value={{ item['magnet_url'] }} readonly>
+            </div>
+            <div class="tor">
+                <div class="title"> }}</div>
                 <div class="seeders">Seeders: <span> {{ item['seeders'] }} </span></div>
                 <div class="leeches">Leeches: <span> {{ item['leeches'] }} </span></div>
                 <input type='text' class="magnets-inp" value={{ item['magnet_url'] }} readonly>

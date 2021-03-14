@@ -133,12 +133,16 @@ body{
   }
 
   .wrap {
-    width: 200px;
+    width: 250px;
+    top:40%;
   }
   .tor {
     width : 150px;
     font-size: 10px;
     height: 25px;
     border: none;
+    height: auto;
+    width: auto;
+    border-left: 3px solid #00B4CC;
   }
 }
