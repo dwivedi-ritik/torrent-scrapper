@@ -84,9 +84,10 @@ body{
   left:50%;
 }
 .tor {
+  margin-top: 15px;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-around;
   transform: translateX(-50%);
   font-size: 12px;
   width: 650px;
@@ -128,13 +129,13 @@ body{
 
 @media screen and (max-width: 700px){
   .up h1{
+    top: 20%;
     font-size: 25px;
   }
   .wrap {
-    top: 40%;
-    width: auto;
+    width: 250px;
+    top:40%;
   }
-
   .tor {
     font-size: 8px;
     border: none;
