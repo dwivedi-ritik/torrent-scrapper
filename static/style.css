@@ -142,5 +142,6 @@ body{
     height: auto;
     width: auto;
     border-left: 3px solid #00B4CC;
+    box-shadow: 2px 6px 10px 1px #ccc;
   }
 }
