@@ -35,10 +35,9 @@ class Tor1377x(object):
 
 
     def get_json(self , query):
-        original_url = "https://www.1377x.to"
-        url = "https://www.1377x.to/search/{}/1".format(query)
+        original_url = "https://www.1337xx.to"
+        url = "https://www.1337xx.to/search/{}/1/".format(query)
         res = requests.get(url)
-        print(res.status_code)
         soup = BeautifulSoup(res.content , "lxml")
         tbody = soup.find_all("td")
         seeders , leechers , link = None , None , None 
@@ -56,6 +55,6 @@ class Tor1377x(object):
                 link = url.group(1)
                 self.movie_links.append(original_url+link)
         
-        with ThreadPoolExecutor(max_workers=20) as executor:
+        with ThreadPoolExecutor(max_workers=5) as executor:
             executor.map(self.get_thread_magnate_link , self.movie_links , self.seeders_list , self.leeches_list)
         return self.movie_data

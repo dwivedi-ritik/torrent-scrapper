@@ -1,27 +1,23 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
 body{
-  margin: 0;
-  padding: 0;
+  margin: 0 4% 0 4%;
   background: #f2f2f2;
   font-family: 'Open Sans', sans-serif;
 }
 
 .up {
- display: flex;
- align-items: center;
- justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .up h1{
-  position: absolute;
-  top:15%;
   color: #00B4CC;
-  font-size: 60px;
+  font-size: 2.5rem;
 }
 
 .search {
-  width: 100%;
   position: relative;
   display: flex;
 }
@@ -66,11 +62,8 @@ body{
 }
 
 .wrap{
-  width: 400px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -80%);
+  max-width: 400px;
+  min-width: auto;
 }
 .wrap p{
   margin-top: 5%;
@@ -78,38 +71,38 @@ body{
   font-size: 10px;
   font-weight: bold;
 }
+
 .res {
-  position:absolute;
-  top:60%;
-  left:50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
 .tor {
   margin-top: 15px;
+  padding: 0.8rem;
+  font-size: 0.5rem;
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  transform: translateX(-50%);
-  font-size: 12px;
-  width: 650px;
-  max-width: 1000px;
-  height: 50px;
+  gap:2rem;
+  min-width: auto;
+  height: auto;
+  min-height: 4rem;
   border-left: 3px solid #00B4CC;
+  box-shadow: 2px 4px 12px 1px rgb(218, 217, 217);
 }
 
 .title {
   font-weight: bold;
-  padding: 15px;
 }
 
 .seeders{
     font-weight: bold;
-    padding: 5px;
     color: rgb(49, 199, 114);
 }
 
 .leeches{
   font-weight: bold;
-  padding: 10px;
   color: rgb(236, 117, 38);
 }
 
@@ -127,21 +120,9 @@ body{
   color: rgb(236, 61, 38);
 }
 
-@media screen and (max-width: 700px){
-  .up h1{
-    top: 20%;
-    font-size: 25px;
+@media (min-width: 700px){
+    .tor{
+      width: 650px;
+
+    }
   }
-  .wrap {
-    width: 250px;
-    top:40%;
-  }
-  .tor {
-    font-size: 8px;
-    border: none;
-    height: auto;
-    width: auto;
-    border-left: 3px solid #00B4CC;
-    box-shadow: 2px 4px 12px 1px rgb(218, 217, 217);
-  }
-}
