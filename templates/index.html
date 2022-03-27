@@ -14,11 +14,23 @@
     <div class="up">
         <h1>Torr Search</h1>
         <div class="wrap">
-            <form class="search" method="POST">
-                <input type="text" class="searchTerm" placeholder="Search Torrent" name="query">
-                <button type="submit" class="searchButton" value="">
-                    <img src="./static/search.png" class="ico" alt="" type="submit">
-                </button>
+            <form method="POST">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" value="tpb" name="cb" id="tpb">
+                        The Pirate Bay
+                    </label>
+                    <label>
+                        <input type="checkbox" value="1337x" name="cb">
+                        1337x
+                    </label>
+                </div>
+                <div class="search">
+                    <input type="text" class="searchTerm" placeholder="Search Torrent" name="query">
+                    <button type="submit" class="searchButton" value="">
+                        <img src="./static/search.png" class="ico" alt="" type="submit">
+                    </button>
+                </div>
             </form>
             <p>Torrent searcher which scrape torrents from 1337x.
                 click on the magnet links for copying magnet link.
@@ -28,6 +40,7 @@
             </div>
         </div>
     </div>
+
     <div class="res">
         {% for item in res%}
         <div class="tor">
@@ -39,6 +52,13 @@
         </div>
         {% endfor %}
     </div>
+    <footer>
+        <p>The Pirate Bay have faster response time but low torrent count.<br>
+            1337x have slower response time but high seeding torrents. <br>
+            Selecting both torrent will only result torrent from Pirate Bay. <br>
+        </p>
+
+    </footer>
 </body>
 <script src={{ url_for('static' ,filename='index.js' )}}>
 </script>
