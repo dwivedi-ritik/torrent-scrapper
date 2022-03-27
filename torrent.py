@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 import re
 from collections import defaultdict
 from concurrent.futures import ThreadPoolExecutor
-
+import time
 
 class Tor1377x(object):
     __slots__ = ('movie_data' , 'seeders_list' , 'leeches_list' , 'movie_links')
@@ -19,6 +19,7 @@ class Tor1377x(object):
 
     def get_thread_magnate_link(self , movie_url , seeders , leeches ):
         obj = defaultdict()
+        time.sleep(0.02)
         res = requests.get(movie_url , headers={"User-Agent":'Mozilla Firefox'}).content
         soup2 = BeautifulSoup(res , "lxml")
         mag_link = "l3426749b3b895e9356348e295596e5f2634c98d8 la1038a02a9e0ee51f6e4be8730ec3edea40279a2 l0d669aa8b23687a65b2981747a14a1be1174ba2c"
@@ -37,7 +38,12 @@ class Tor1377x(object):
     def get_json(self , query):
         original_url = "https://www.1337xx.to"
         url = "https://www.1337xx.to/search/{}/1/".format(query)
-        res = requests.get(url)
+        time.sleep(0.03)
+        try:
+            res = requests.get(url , headers={"User-Agent":'Mozilla Firefox'})
+        except Exception:
+            res = requests.get(url , headers={"User-Agent":'Mozilla Firefox'})
+
         soup = BeautifulSoup(res.content , "lxml")
         tbody = soup.find_all("td")
         seeders , leechers , link = None , None , None 
@@ -55,6 +61,6 @@ class Tor1377x(object):
                 link = url.group(1)
                 self.movie_links.append(original_url+link)
         
-        with ThreadPoolExecutor(max_workers=5) as executor:
-            executor.map(self.get_thread_magnate_link , self.movie_links , self.seeders_list , self.leeches_list)
+        # with ThreadPoolExecutor(max_workers=5) as executor:
+        map(self.get_thread_magnate_link , self.movie_links , self.seeders_list , self.leeches_list)
         return self.movie_data
