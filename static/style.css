@@ -92,10 +92,7 @@ label{
   margin-top: 15px;
   padding: 0.8rem;
   font-size: 0.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  min-width: auto;
+  min-width: 350px;
   height: auto;
   min-height: 4rem;
   border-left: 3px solid #00B4CC;
