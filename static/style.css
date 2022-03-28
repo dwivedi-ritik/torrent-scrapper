@@ -75,7 +75,6 @@ p{
 .res {
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
 .checkbox{
   display: flex;
@@ -91,8 +90,11 @@ label{
 .tor {
   margin-top: 15px;
   padding: 0.8rem;
-  font-size: 0.5rem;
-  min-width: 350px;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  min-width: auto;
   height: auto;
   min-height: 4rem;
   border-left: 3px solid #00B4CC;
@@ -130,6 +132,8 @@ label{
 @media (min-width: 700px){
     .tor{
       width: 650px;
-
+    }
+    .res{
+      align-items: center;
     }
   }
