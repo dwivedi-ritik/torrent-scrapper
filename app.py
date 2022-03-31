@@ -13,7 +13,7 @@ def home():
         msg = ""
         check_lists = request.form.getlist("cb")
         if "tpb" in check_lists:
-            movie_details  = piratebay.pirate(inp)
+            movie_details  = piratebay.pirate( query = inp , top=False)
 
         else:
             try:
@@ -31,7 +31,10 @@ def home():
         
         return render_template("index.html" , res=movie_details["movie_info"] , msg=msg)
     else:
-        return render_template("index.html")
+        movie_details  = piratebay.pirate(query=None , top=True)
+        msg = ""
+        return render_template("index.html" , res=movie_details["movie_info"] , msg=msg)
+
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -2,7 +2,6 @@ import requests
 from bs4 import BeautifulSoup
 import re
 from collections import defaultdict
-from concurrent.futures import ThreadPoolExecutor
 import time
 
 class Tor1377x(object):
@@ -30,7 +29,7 @@ class Tor1377x(object):
         obj["title"] = title
         obj["seeders"] = seeders
         obj["leeches"] = leeches
-        obj["magnet_url"] = magnet_link
+        obj["magnet_url"] = magnet_lin54wqk
         self.movie_data["movie_info"].append(dict(obj))
         return
 
@@ -38,11 +37,7 @@ class Tor1377x(object):
     def get_json(self , query):
         original_url = "https://www.1337xx.to"
         url = "https://www.1337xx.to/search/{}/1/".format(query)
-        time.sleep(0.03)
-        try:
-            res = requests.get(url , headers={"User-Agent":'Mozilla Firefox'})
-        except Exception:
-            res = requests.get(url , headers={"User-Agent":'Mozilla Firefox'})
+        res = requests.get(url)
 
         soup = BeautifulSoup(res.content , "lxml")
         tbody = soup.find_all("td")
@@ -61,6 +56,10 @@ class Tor1377x(object):
                 link = url.group(1)
                 self.movie_links.append(original_url+link)
         
-        # with ThreadPoolExecutor(max_workers=5) as executor:
         map(self.get_thread_magnate_link , self.movie_links , self.seeders_list , self.leeches_list)
         return self.movie_data
+
+
+if __name__ == "__main__":
+    r = Tor1377x()
+    r.get_json("Batman")

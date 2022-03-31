@@ -28,10 +28,11 @@ def get_json(soup):
         k += 1
     return json_obj
 
-def pirate(query):
-
-    # url = "https://tpb.party/top/200"
-    url = f"https://tpb.party/search/{query}"
+def pirate(query , top = False):
+    if top and query is None:
+        url = "https://tpb.party/top/200"
+    else:
+        url = f"https://tpb.party/search/{query}"
     res = requests.get(url)
     if res.status_code != 200:
         raise ValueError("Ops didn't get valid response")
