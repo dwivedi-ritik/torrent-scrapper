@@ -4,8 +4,8 @@ from sqlalchemy.sql import func
 from flask import Blueprint, request, jsonify
 
 from models import db, TorrentProvider, TorrentProviderCode
-from dto import TorrentProviderDto
-
+from dto import TorrentProviderDto, TorrentProviderRefresh
+from lib.torrentCsv import add_torrent_from_torrent_csv
 from service.torrent_service import add_top_pirate_in_db
 from service.torrent_provider_service import get_torrent_provider_dto_by_code
 
@@ -51,7 +51,6 @@ def get_torrent_provider_by_params():
 def add_torrent_provider():
     """Add the torrent provider in DB"""
     torrent_provider_dto = TorrentProviderDto(**request.json)  # type: ignore
-
     # pylint: disable=not-callable
     torrent_provider_dto.provider_last_updated = func.now()  # type: ignore
     torrent_provider = torrent_provider_dto.model_instance()
@@ -63,9 +62,15 @@ def add_torrent_provider():
     return jsonify(asdict(torrent_provider_dto))
 
 
-@torrent_provider_blueprint.route("/refresh", methods=["POST"])
+@torrent_provider_blueprint.route("/refresh", methods=["POST"])  # type: ignore
 def refresh_pirate_bay():
-    """Update the DB with top torrents from pirate bay"""
-    if add_top_pirate_in_db():
-        return "success"
+    """Update the DB with passed torrent client"""
+    body = request.get_json()
+    current_dto = TorrentProviderRefresh(**body)
+    if current_dto.code == TorrentProviderCode.PIRATE.value:
+
+        return add_top_pirate_in_db() and "Pirate updated"
+    elif current_dto.code == TorrentProviderCode.TORRENT_CSV.value:
+        add_torrent_from_torrent_csv()
+        return "Torrent CSV updated"
     return "failed"

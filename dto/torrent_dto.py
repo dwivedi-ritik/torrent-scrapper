@@ -22,6 +22,7 @@ class TorrentDto:
             magnet_uri=self.magnetUri,
             imdb_rating=self.imdbRating,
             imdb_url=self.imdbUrl,
+            torrent_provider_id=self.torrentProviderId,
         )
 
     @staticmethod

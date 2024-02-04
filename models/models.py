@@ -29,13 +29,14 @@ class TorrentProvider(db.Model):
 
     def __init__(
         self,
+        code: str,
         provider_name: Union[str, None] = None,
         provider_last_updated: Any = None,
         torrent=None,
     ) -> None:
+        self.code = code
         self.provider_name = provider_name
         self.provider_last_updated = provider_last_updated
-        self.torrent = torrent
 
 
 class Torrent(db.Model):
@@ -55,11 +56,13 @@ class Torrent(db.Model):
 
     def __init__(
         self,
+        torrent_provider_id: int,
         name: Union[str, None],
         magnet_uri: Union[str, None] = None,
         imdb_rating: Union[float, None] = None,
         imdb_url: Union[str, None] = None,
     ):
+        self.torrent_provider_id = torrent_provider_id
         self.name = name
         self.magnet_uri = magnet_uri
         self.imdb_rating = imdb_rating
