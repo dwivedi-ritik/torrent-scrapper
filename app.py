@@ -1,15 +1,12 @@
 from flask import Flask
 
-
-from models import Torrent
+from models import db
 from routes.torrent_routes import torr_blueprint
 from routes.torrent_provider_route import torrent_provider_blueprint
 
 # import torrent
 
 # from torrs import piratebay
-
-from models import db
 
 
 app = Flask(__name__)
