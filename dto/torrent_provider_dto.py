@@ -25,7 +25,7 @@ class TorrentProviderDto:
         torrent_provider: TorrentProvider,
     ) -> Type["TorrentProviderDto"]:
         return TorrentProviderDto(
-            code=torrent_provider.code,  # type: ignore
+            code=torrent_provider.code.value,  # type: ignore
             providerName=torrent_provider.provider_name,  # type: ignore
             providerLastUpdated=torrent_provider.provider_last_updated,
         )  # type:ignore

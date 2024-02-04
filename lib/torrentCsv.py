@@ -1,9 +1,9 @@
 import os
 import csv
-from typing import List, Union, Dict
+from typing import Union, Dict
 from dto import TorrentDto
 
-from models import TorrentProvider, db, TorrentProviderCode, Torrent
+from models import TorrentProvider, db, TorrentProviderCode
 from service.torrent_provider_service import get_torrent_provider_by_code
 
 TORRENT_CSV_FILE_PATH = os.environ.get("TORRENT_CSV") or "./torrents.csv"
@@ -20,7 +20,6 @@ def add_torrent_from_torrent_csv() -> bool:
         return False
     with open(TORRENT_CSV_FILE_PATH, "r+", encoding="utf-8") as csv_file:
         csv_reader = csv.DictReader(csv_file)
-        fresh_torr_count = 0
         for counter, reader in enumerate(csv_reader):
             dto_dict: Dict = {
                 "name": reader["name"],

@@ -32,7 +32,6 @@ class TorrentProvider(db.Model):
         code: str,
         provider_name: Union[str, None] = None,
         provider_last_updated: Any = None,
-        torrent=None,
     ) -> None:
         self.code = code
         self.provider_name = provider_name

@@ -16,7 +16,7 @@ torrent_provider_blueprint = Blueprint("torrent_provider", __name__)
 @torrent_provider_blueprint.route("/getAll", methods=["GET"])
 def fetch_all_torrent_provider():
     """Get all torrent provider"""
-    torrent_provider_list = db.session().query(TorrentProvider)  # type: ignore
+    torrent_provider_list = db.session().query(TorrentProvider).all()  # type: ignore
 
     return jsonify(
         [
